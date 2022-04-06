@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  db:
+    container_name: db.animepoll
+    hostname: db.animepoll.com
+    image: postgres:14.2
+    environment:
+      PGUSER: "animepoll" #Variável pré-definir o usuário da ferramenta psql.
+      POSTGRES_USER: "animepoll"
+      POSTGRES_PASSWORD: "anime@poll2022"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data 
+    networks:
+      - animepoll
+
+  api:
+    container_name: app.animepoll
+    hostname: app.animepoll.com
+    image: animepoll:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    networks:
+      - animepoll
+    depends_on:
+      - db
+
+networks: 
+  animepoll:
+    driver: bridge

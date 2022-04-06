@@ -1,0 +1,9 @@
+spring.datasource.url=jdbc:postgresql://db.animepoll.com:5432/animepoll
+spring.datasource.username=animepoll
+spring.datasource.password=anime@poll2022
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=none
+
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=false
