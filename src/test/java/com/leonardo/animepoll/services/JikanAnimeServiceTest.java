@@ -1,11 +1,15 @@
 package com.leonardo.animepoll.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.leonardo.animepoll.config.JikanConfig;
 import com.leonardo.animepoll.models.Anime;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -15,26 +19,36 @@ public class JikanAnimeServiceTest {
 
     @Mock
     private JikanConfig jikanconfig;
+
     @Mock
     private HttpClientService httpClientService;
+
+    @Mock
+    private JsonMapperService jsonMapperService;
     
     private JikanAnimeService underTest;
 
     @BeforeEach
     void setup(){
         MockitoAnnotations.openMocks(this);
-        underTest = new JikanAnimeService(httpClientService,jikanconfig);
+        // jsonMapperService = new JsonMapperService();
+        underTest = new JikanAnimeService(httpClientService, jikanconfig, jsonMapperService);
     }
 
     @Test
-    void shouldPass(){
+    void shouldReturnACowboyBebopAnimeObject(){
 
         //given
         Integer id = 1;
 
         //when
         when(jikanconfig.getBaseUrl()).thenReturn("https://api.jikan.moe/v4/");
-        when(httpClientService.get("https://api.jikan.moe/v4/anime/1")).thenCallRealMethod();
+
+        when(httpClientService.get(anyString()))
+            .thenCallRealMethod();
+
+        when(jsonMapperService.jsonToAnime(any(JSONObject.class)))
+            .thenCallRealMethod();
 
         Anime actual = underTest.findById(id);
 
@@ -44,6 +58,9 @@ public class JikanAnimeServiceTest {
 
         assertEquals(expectedId, actual.getId());
         assertEquals(expectedTitle, actual.getTitle());
+
+        verify(jsonMapperService).jsonToAnime(any(JSONObject.class));
+        verify(httpClientService).get(anyString());
 
     }
 
