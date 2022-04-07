@@ -3,9 +3,11 @@ package com.leonardo.animepoll.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@NoArgsConstructor
+@Data
 
 @Component
 @ConfigurationProperties(prefix = "jikan")
