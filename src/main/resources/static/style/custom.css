@@ -33,7 +33,7 @@
 }
 
 .site-icon{
-    width: 40px;
+    width: 40px !important;
     border-radius: 50%;
 }
 
@@ -70,7 +70,7 @@
     width: 50px;
 }
 
-.chart-item img{
+.chart-item .cover{
     max-height: 280px;
     width:198px !important
 }

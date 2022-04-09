@@ -13,13 +13,13 @@
     <nav th:replace="fragments/navbar :: navbar"></nav>
     
     <main class="container">
-
+            <h3 class="my-3 text-center">Classificação completa dos animes da atual temporada.</h3>
             <div th:each="item : ${chart}" class="d-flex flex-row my-2 chart-item align-items-center">
                 
                 <div class="rank bg-primary fs-3 px-2 d-flex justify-content-center">
                     <p th:text="${item.getRank()}" class="m-0 mt-1"></p>
                 </div>
-                <img th:src="${item.getCover()}">
+                <img class="cover" th:src="${item.getCover()}">
                 <div class="w-100 d-flex flex-column mb-auto anime-desc">
                     
                     <p th:utext="${'<b>Titulo: </b>' + item.getTitle()}" class="m-0 mx-3 text-truncate anime-title fs-4"></p>
@@ -27,11 +27,19 @@
                     
                 
                     <div class="d-flex flex-grow-1">
-                        <div class="m-3">
+                        <div class="m-3 d-flex flex-column">
                             
-                            <p th:utext="${'Inicio de transmissão no dia ' + item.getAiredFrom() + ' até ' + item.getAiredTo()}" th:if="${item.getAiredTo() != null && item.getAiredFrom() != null}"></p>
-                            <p th:utext="${'Inicio de transmissão no dia ' + item.getAiredFrom() + ' sem previsão definida para finalizar.'}" th:if="${item.getAiredFrom() != null}"></p>
+                            <p class="text-secondary" th:utext="${'<b>Transmitido todo(a):  </b>' + item.getDayOfWeek()}" th:if="${item.getAiredFrom() != null}"></p>
 
+                            <p class="text-secondary" th:utext="${'<b>Data de primeira transmissão: </b>' + item.getAiredFrom()}" th:if="${item.getAiredFrom() != null}"></p>
+                            <p class="text-secondary" th:utext="${'<b>Data de última transmissão: </b>' + item.getAiredTo()}" th:if="${item.getAiredTo() != null}"></p>
+                            <p class="text-secondary" th:utext="${'<b>Data de última transmissão: </b> Não definida.'}" th:if="${item.getAiredTo() == null}"></p>
+
+                            <div class="mt-auto">
+                                <a class="me-1" th:if="${item.getUrl() != null}" th:href="${item.getUrl()}" target="_blank"><img class="site-icon" src="assets/myanimelist.png" data-bs-toggle="tooltip" data-bs-placement="top" title="MyAnimeList"></a>
+                                <a class="ms-1" th:if="${item.getTrailer() != null}" th:href="${item.getTrailer()}" target="_blank"><img class="site-icon" src="assets/youtube.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"></a>
+                            </div>
+                            
                         </div>
 
                         <div class="ms-auto mt-auto m-2 chart-item chart-score-item p-2">

@@ -16,7 +16,11 @@ public class ChartItemDTO {
     private String cover;
     private String japaneseTitle;
 
+    private String trailer;
+    private String url;
+
     private String airedFrom;
     private String airedTo;
+    private String dayOfWeek;
 
 }
