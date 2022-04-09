@@ -8,11 +8,13 @@ import com.leonardo.animepoll.models.Anime;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 
+@Service
 public class JikanSeasonService {
 
     private final HttpClientService httpClientService;
