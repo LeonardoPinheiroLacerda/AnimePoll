@@ -1,10 +1,22 @@
-<nav class="navbar navbar-light bg-light" th:fragment="navbar">
+<nav class="navbar navbar-light bg-primary navbar-expand-lg" th:fragment="navbar">
+
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-        Anime Poll
-    </a>
-    <span class="navbar-text">
-        Site idealizado e desenvolvido por <a href="http://leonardopinheirolacerda.github.io" target="_blank">Leonardo Lacerda</a>
-    </span>
+    <a class="navbar-brand text-light" href="#">Anime Poll</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-light" id="vote-nav-item" aria-current="page" href="/">Votação da temporada</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" id="chart-nav-item" href="/chart">Classificação</a>
+        </li>
+      </ul>
+      <span class="navbar-text text-light">
+        Site idealizado e desenvolvido por <a href="http://leonardopinheirolacerda.github.io" class="text-light" target="_blank">Leonardo Lacerda</a>
+      </span>
+    </div>
   </div>
 </nav>>

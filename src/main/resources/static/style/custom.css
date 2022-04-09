@@ -20,3 +20,31 @@
     width: 40px;
     border-radius: 50%;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--bs-gray-400); 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--bs-gray-700); 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-gray-800);
+}
+
+/* Corner */
+::-webkit-scrollbar-corner{
+    display: none;
+}

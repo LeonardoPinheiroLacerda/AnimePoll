@@ -99,7 +99,9 @@
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl);
-        })
+        });
+
+        document.querySelector('#vote-nav-item').classList.add('active');
     </script>
     <script src="/js/voting.js"></script>
 </body>
