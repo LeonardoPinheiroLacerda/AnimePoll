@@ -22,7 +22,7 @@ Fazer media query aqui
 } */
 
 .anime-desc {
-    height: 137px;
+    height: 280px;
 }
 
 .chart-score-item{
@@ -72,11 +72,11 @@ Fazer media query aqui
 }
 
 .rank{
-    height: 137px;
+    height: 280px;
     width: 50px;
 }
 
 .chart-item .cover{
-    max-height: 137px;
-    max-width:  100px !important
+    max-height: 280px;
+    width:198px !important
 }

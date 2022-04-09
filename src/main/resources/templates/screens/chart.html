@@ -22,23 +22,23 @@
                 <img class="cover" th:src="${item.getCover()}">
                 <div class="w-100 d-flex flex-column mb-auto anime-desc">
                     
-                    <p th:utext="${'<b>Titulo: </b>' + item.getTitle()}" class="m-0 mx-3 text-truncate anime-title fs-4"></p>
-                    <p th:text="${item.getJapaneseTitle()}" class="m-0 mx-3 text-secondary text-truncate anime-title fs-6"></p>
-                    
-                
+                   
                     <div class="d-flex flex-grow-1">
-                        <div class="m-3 d-flex flex-column">
+                        <div class="d-flex flex-column">
                             
-                            <p class="text-secondary" th:utext="${'<b>Transmitido todo(a):  </b>' + item.getDayOfWeek()}" th:if="${item.getAiredFrom() != null}"></p>
+                            <p th:utext="${item.getTitle()}" class="m-0 mx-3 text-truncate anime-title fs-4"></p>
+                            <p th:text="${item.getJapaneseTitle()}" class="m-0 mx-3 text-secondary text-truncate anime-title fs-6"></p>
+                            
+                            <!-- <p class="text-secondary" th:utext="${'<b>Transmitido todo(a):  </b>' + item.getDayOfWeek()}" th:if="${item.getAiredFrom() != null}"></p>
 
                             <p class="text-secondary" th:utext="${'<b>Data de primeira transmissão: </b>' + item.getAiredFrom()}" th:if="${item.getAiredFrom() != null}"></p>
                             <p class="text-secondary" th:utext="${'<b>Data de última transmissão: </b>' + item.getAiredTo()}" th:if="${item.getAiredTo() != null}"></p>
-                            <p class="text-secondary" th:utext="${'<b>Data de última transmissão: </b> Não definida.'}" th:if="${item.getAiredTo() == null}"></p>
+                            <p class="text-secondary" th:utext="${'<b>Data de última transmissão: </b> Não definida.'}" th:if="${item.getAiredTo() == null}"></p> -->
 
-                            <div class="mt-auto">
+                            <div class="m-3 mt-auto">
                                 <a class="me-1" th:if="${item.getUrl() != null}" th:href="${item.getUrl()}" target="_blank"><img class="site-icon" src="assets/myanimelist.png" data-bs-toggle="tooltip" data-bs-placement="top" title="MyAnimeList"></a>
                                 <a class="ms-1" th:if="${item.getTrailer() != null}" th:href="${item.getTrailer()}" target="_blank"><img class="site-icon" src="assets/youtube.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"></a>
-                            </div>
+                            </div> 
                             
                         </div>
 
