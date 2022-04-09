@@ -22,6 +22,12 @@ public class JsonMapperService {
         anime.setCover(json.getJSONObject("images").getJSONObject("jpg").getString("image_url"));
         anime.setYear(json.getInt("year"));
         anime.setUrl(json.getString("url"));
+        anime.setMembers(json.getLong("members"));
+        
+        if(!json.isNull("score")){
+            anime.setScore(json.getFloat("score"));
+            anime.setScoredBy(json.getLong("scored_by"));
+        }
         
         if(json.getJSONObject("trailer").isNull("url") == false){
             anime.setTrailer(json.getJSONObject("trailer").getString("url"));

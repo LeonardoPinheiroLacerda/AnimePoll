@@ -65,6 +65,15 @@ public class Anime {
     @Column(nullable = false)
     private Long votes;
 
+    @Column(nullable = false)
+    private Long members;
+
+    @Column(nullable = true)
+    private Float score;
+
+    @Column(nullable = true)
+    private Long scoredBy;
+
     @Enumerated(EnumType.STRING)
     private Rating rating;
 

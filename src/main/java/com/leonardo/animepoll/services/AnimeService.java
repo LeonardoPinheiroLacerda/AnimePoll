@@ -2,6 +2,7 @@ package com.leonardo.animepoll.services;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.leonardo.animepoll.models.Anime;
 import com.leonardo.animepoll.repositories.AnimeRepository;
@@ -24,7 +25,9 @@ public class AnimeService {
     }
 
     public List<Anime> findAll(){
-        return repository.findAll();
+        return repository
+            .findAll()
+            .stream().sorted((a1, a2) -> a2.getMembers().compareTo(a1.getMembers())).collect(Collectors.toList());
     }
 
     public void deleteAll(){

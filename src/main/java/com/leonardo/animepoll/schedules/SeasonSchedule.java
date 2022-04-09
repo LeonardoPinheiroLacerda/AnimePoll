@@ -1,7 +1,6 @@
 package com.leonardo.animepoll.schedules;
 
 import java.util.List;
-import java.util.Set;
 
 import com.leonardo.animepoll.models.Anime;
 import com.leonardo.animepoll.models.enums.Season;
@@ -29,18 +28,22 @@ public class SeasonSchedule {
     @Scheduled(cron = "0 * * * * *")
     public void checkAndUpdateSeason(){
         
-        List<Anime> previousSeason = service.findAll();
+        List<Anime> previousSeason = service.findAll(); 
 
-        Season season = previousSeason.get(0).getSeason();
-        Integer year = previousSeason.get(0).getYear();
+        try{
+            Season season = previousSeason.get(0).getSeason();
+            Integer year = previousSeason.get(0).getYear();
 
-        Boolean isSameSeason = jikanService
-            .findActual()
-            .stream()
-            .anyMatch(anime -> anime.getSeason().equals(season) && anime.getYear().equals(year));
+            Boolean isSameSeason = jikanService
+                .findActual()
+                .stream()
+                .anyMatch(anime -> anime.getSeason().equals(season) && anime.getYear().equals(year));
 
-        if(!isSameSeason){
-            service.deleteAll();
+            if(!isSameSeason){
+                service.deleteAll();
+                service.saveSeason();
+            }
+        }catch(IndexOutOfBoundsException e){
             service.saveSeason();
         }
 
