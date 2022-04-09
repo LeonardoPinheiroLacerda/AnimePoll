@@ -7,6 +7,22 @@
     border-radius: 5px;
 }
 
+.chart-item {
+    position: relative;
+    border: 1px solid gray;
+    -webkit-box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.53); 
+    box-shadow: 5px 5px 8px 2px rgba(0,0,0,0.53);
+    border-radius: 5px;
+}
+
+.anime-desc {
+    height: 280px;
+}
+
+.chart-score-item{
+    width:110px
+}
+
 .anime-item > .bg-image {
     width: 185px;
     height: auto;
@@ -47,4 +63,18 @@
 /* Corner */
 ::-webkit-scrollbar-corner{
     display: none;
+}
+
+.rank{
+    height: 280px;
+    width: 50px;
+}
+
+.chart-item img{
+    max-height: 280px;
+    width:198px !important
+}
+
+.anime-title{
+    width: calc(100% - 330px);
 }
