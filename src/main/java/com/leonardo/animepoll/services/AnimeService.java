@@ -34,10 +34,11 @@ public class AnimeService {
         repository.deleteAll();
     }
 
-    public void vote(Long id){
+    public Anime vote(Long id){
         Anime anime = repository.findById(id).get();
         anime.setVotes(anime.getVotes() + 1);
         repository.save(anime);
+        return anime;
     }
 
 }
