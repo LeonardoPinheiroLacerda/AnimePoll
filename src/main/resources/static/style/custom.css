@@ -1,0 +1,20 @@
+.anime-item {
+    position: relative;
+    width: 200px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.anime-item > .bg-image {
+    width: 185px;
+    height: auto;
+}
+
+.info{
+    height: 110px;
+}
+
+.site-icon{
+    width: 40px;
+    border-radius: 50%;
+}
