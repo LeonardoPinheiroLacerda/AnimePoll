@@ -1,10 +1,11 @@
 package com.leonardo.animepoll.services;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.leonardo.animepoll.dtos.ChartItem;
+import com.leonardo.animepoll.dtos.ChartItemDTO;
 import com.leonardo.animepoll.models.Anime;
 import com.leonardo.animepoll.repositories.AnimeRepository;
 
@@ -19,18 +20,18 @@ public class ChartService {
     
     private final AnimeRepository repository;
 
-    public List<ChartItem> getChart(){
+    public List<ChartItemDTO> getChart(){
         
         List<Anime> animes = repository.findAll()
             .stream().sorted((a1, a2) -> a2.getVotes().compareTo(a1.getVotes())).collect(Collectors.toList());;;
 
-        List<ChartItem> chart = new ArrayList<>();
+        List<ChartItemDTO> chart = new ArrayList<>();
 
         for(int i = 0; i < animes.size(); i ++){
 
             Anime anime = animes.get(i);
 
-            ChartItem item = new ChartItem();
+            ChartItemDTO item = new ChartItemDTO();
             item.setRank(i + 1);
             item.setTitle(anime.getTitle());
             item.setMalScore(anime.getScore());
@@ -39,6 +40,14 @@ public class ChartService {
             item.setCover(anime.getCover());
             item.setJapaneseTitle(anime.getJapaneseTitle());
 
+
+            if(anime.getAiredFrom() != null){
+                item.setAiredFrom(anime.getAiredFrom().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            }
+            if(anime.getAiredTo() != null) {
+                item.setAiredTo(anime.getAiredTo().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));    
+            }
+            
             chart.add(item);
         }
 

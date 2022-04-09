@@ -1,14 +1,12 @@
 package com.leonardo.animepoll.dtos;
 
-import java.time.LocalDate;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 
-public class ChartItem {
+public class ChartItemDTO {
     
     private Integer rank;
     private String title;
@@ -17,5 +15,8 @@ public class ChartItem {
     private Long votes;
     private String cover;
     private String japaneseTitle;
+
+    private String airedFrom;
+    private String airedTo;
 
 }
