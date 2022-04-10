@@ -17,11 +17,16 @@ import lombok.AllArgsConstructor;
 public class AnimeService {
     
     private final JikanSeasonService jikanSeasonService;
+    private final JikanAnimeService jikanAnimeService;
     private final AnimeRepository repository;
 
     public void saveSeason(){
         Set<Anime> season = jikanSeasonService.findActual();
         repository.saveAll(season);
+    }
+
+    public Anime save(Anime anime){
+        return repository.save(anime);
     }
 
     public List<Anime> findAll(){
@@ -41,4 +46,7 @@ public class AnimeService {
         return anime;
     }
 
+    public Anime findById(Long id){
+        return jikanAnimeService.findById(id);
+    }
 }

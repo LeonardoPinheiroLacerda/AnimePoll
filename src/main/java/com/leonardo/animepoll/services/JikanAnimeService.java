@@ -17,7 +17,7 @@ public class JikanAnimeService {
     private final JikanConfig config;
     private final JsonMapperService jsonMapperService;
 
-    public Anime findById(Integer id){
+    public Anime findById(Long id){
         String uri = config.getBaseUrl() + "anime/" + id;
 
         String response = httpClientService.get(uri);

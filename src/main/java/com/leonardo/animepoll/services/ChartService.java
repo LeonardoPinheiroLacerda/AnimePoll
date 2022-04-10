@@ -1,7 +1,5 @@
 package com.leonardo.animepoll.services;
 
-import java.time.DayOfWeek;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,45 +40,11 @@ public class ChartService {
             item.setJapaneseTitle(anime.getJapaneseTitle());
             item.setTrailer(anime.getTrailer());
             item.setUrl(anime.getUrl());
-            
-
-
-            if(anime.getAiredFrom() != null){
-                item.setAiredFrom(anime.getAiredFrom().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                item.setDayOfWeek(this.dayOfWeekToString(anime.getAiredFrom().getDayOfWeek()));
-            }
-            if(anime.getAiredTo() != null) {
-                item.setAiredTo(anime.getAiredTo().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));    
-            }
-            
+                    
             chart.add(item);
         }
 
         return chart;
     }
-
-    private String dayOfWeekToString(DayOfWeek dow){
-
-        switch(dow){
-
-            case MONDAY: 
-                return "Segunda-feira";
-            case TUESDAY:
-                return "Terça-feira";
-            case WEDNESDAY:
-                return "Quarta-feira";
-            case THURSDAY:
-                return "Quinta-feira";
-            case FRIDAY:
-                return "Sexta-feira";
-            case SATURDAY:
-                return "Sábado";
-            case SUNDAY:
-                return "Domingo";
-            default:
-                return "Não definido";
-        }
-
-    }
-
+    
 }

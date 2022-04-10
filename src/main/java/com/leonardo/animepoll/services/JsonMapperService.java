@@ -23,6 +23,7 @@ public class JsonMapperService {
         anime.setYear(json.getInt("year"));
         anime.setUrl(json.getString("url"));
         anime.setMembers(json.getLong("members"));
+        anime.setMalId(json.getLong("mal_id"));
         
         if(!json.isNull("score")){
             anime.setScore(json.getFloat("score"));

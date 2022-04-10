@@ -39,7 +39,7 @@ public class JikanAnimeServiceTest {
     void shouldReturnACowboyBebopAnimeObject(){
 
         //given
-        Integer id = 1;
+        Long id = 1L;
 
         //when
         when(jikanconfig.getBaseUrl()).thenReturn("https://api.jikan.moe/v4/");

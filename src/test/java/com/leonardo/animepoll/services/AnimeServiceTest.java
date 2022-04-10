@@ -18,12 +18,16 @@ public class AnimeServiceTest {
     @Mock
     private AnimeRepository repository;
 
+
+    @Mock 
+    private JikanAnimeService jikanAnimeService;
+
     private AnimeService underTest;
 
     @BeforeEach
     void setup(){
         MockitoAnnotations.openMocks(this);
-        underTest = new AnimeService(jikanSeasonService, repository);
+        underTest = new AnimeService(jikanSeasonService, jikanAnimeService, repository);
     }
 
     @Test

@@ -38,6 +38,9 @@ public class Anime {
         name = "anime_seq", sequenceName = "anime_seq", initialValue = 1, allocationSize = 1)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private Long malId;
+
     @Column(nullable = false)
     private String title;
 

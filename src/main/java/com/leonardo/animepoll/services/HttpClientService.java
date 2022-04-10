@@ -29,9 +29,13 @@ public class HttpClientService {
 
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
+            if(response.statusCode() != 200){
+                return null;
+            }
+
             return response.body();
 
-        }catch(URISyntaxException e){
+        }catch(URISyntaxException e){           
             return null;
         }catch(IOException | InterruptedException e){
             return null;
