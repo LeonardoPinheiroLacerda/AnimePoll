@@ -87,7 +87,7 @@ public class SeasonSchedule {
                 
                 service.save(anime);
 
-                Thread.sleep(750L);
+                Thread.sleep(1500L);
 
             } catch(InterruptedException | JSONException |NullPointerException e){
                 LOGGER.warn("O resgistro de id " + anime.getId() + " não pode ser atualizado, provavelmente a aplicação fez mais requests que devia por minuto.");
