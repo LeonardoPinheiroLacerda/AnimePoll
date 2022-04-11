@@ -82,8 +82,6 @@ public class SeasonSchedule {
                 anime.setScoredBy(newData.getScoredBy());
                 anime.setStatus(newData.getStatus());
                 anime.setMembers(newData.getMembers());
-
-                System.out.println(newData.getMalId());
                 
                 service.save(anime);
 
