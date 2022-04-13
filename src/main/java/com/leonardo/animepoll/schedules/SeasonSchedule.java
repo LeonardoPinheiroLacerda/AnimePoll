@@ -54,7 +54,6 @@ public class SeasonSchedule {
             service.saveSeason();
             LOGGER.info("A season foi criada no banco de dados!");
         }
-
         
     }
 
