@@ -38,15 +38,16 @@ function showExpiredToast(message){
 }
 
 function vote(){
-    
-    const CSRF = document.getElementsByName('_csrf')[0].value
+
+    const CSRF_VALUE = document.querySelector('meta[name="token"]').content;
+
     const vote = async (id) => { 
         return fetch(
             `/animes/vote/${id}`,
             {
                 method: "POST",
                 headers: {
-                    'X-XSRF-TOKEN': CSRF
+                    "X-XSRF-TOKEN" : CSRF_VALUE
                 },
             }
         );
