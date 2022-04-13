@@ -39,12 +39,15 @@ function showExpiredToast(message){
 
 function vote(){
     
-
-    const vote = async (id) => {
+    const CSRF = document.getElementsByName('_csrf')[0].value
+    const vote = async (id) => { 
         return fetch(
             `/animes/vote/${id}`,
             {
                 method: "POST",
+                headers: {
+                    'X-XSRF-TOKEN': CSRF
+                },
             }
         );
     }
