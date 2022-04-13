@@ -19,7 +19,7 @@ public class JsonMapperService {
         anime.setId(json.getLong("mal_id"));
         anime.setTitle(json.getString("title"));
         anime.setJapaneseTitle(json.getString("title_japanese"));
-        anime.setCover(json.getJSONObject("images").getJSONObject("jpg").getString("image_url"));
+        anime.setCover(json.getJSONObject("images").getJSONObject("webp").getString("large_image_url"));
         anime.setYear(json.getInt("year"));
         anime.setUrl(json.getString("url"));
         anime.setMembers(json.getLong("members"));
