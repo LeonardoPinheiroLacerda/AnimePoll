@@ -80,3 +80,40 @@ Fazer media query aqui
     max-height: 137px;
     max-width:  100px !important
 }
+
+@media only screen and (max-width: 576px) {
+    .anime-title{
+        width:  170px
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .anime-title{
+        width:  222px
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .anime-title{
+        width:  400px
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .anime-title{
+        width:  640px
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .anime-title{
+        width:  820px
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .anime-title{
+        width:  980px
+    }
+}
+
