@@ -9,6 +9,9 @@ import com.leonardo.animepoll.models.Anime;
 import com.leonardo.animepoll.repositories.AnimeRepository;
 
 import org.springframework.stereotype.Service;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import lombok.AllArgsConstructor;
 
@@ -45,6 +48,25 @@ public class ChartService {
         }
 
         return chart;
+    }
+
+    public String getChartHtml(){
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+        templateResolver.setPrefix("templates/");
+        templateResolver.setCacheable(false);
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML");
+
+        templateResolver.setForceTemplateMode(true);
+
+        templateEngine.setTemplateResolver(templateResolver);
+
+        Context ctx = new Context();
+    
+        ctx.setVariable("chart", getChart().subList(0, 10));
+        final String result = templateEngine.process("fragments/chartItems", ctx);
+        return result;
     }
     
 }
