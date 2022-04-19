@@ -12,14 +12,14 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data 
+      - ./.postgres-data:/var/lib/postgresql/data 
     networks:
       - animepoll
 
   api:
     container_name: app.animepoll
     hostname: app.animepoll.com
-    image: animepoll:0.0.1-SNAPSHOT
+    image: animepoll:v1.0.1
     ports:
       - "8080:8080"
     networks:
