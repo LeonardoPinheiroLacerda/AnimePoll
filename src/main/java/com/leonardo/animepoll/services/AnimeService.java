@@ -51,7 +51,7 @@ public class AnimeService {
 
         Anime anime = repository.findById(id).get();
 
-        setAnimeCookie(anime.getTitle().replace(' ', '_'), response);
+        setAnimeCookie(anime.getMalId().toString(), response);
 
         anime.setVotes(anime.getVotes() + 1);
         repository.save(anime);

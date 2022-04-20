@@ -19,7 +19,7 @@ services:
   api:
     container_name: app.animepoll
     hostname: app.animepoll.com
-    image: animepoll:v1.0.1
+    image: animepoll:v1.0.2
     ports:
       - "8080:8080"
     networks:
