@@ -24,4 +24,11 @@ public class ChartController {
         return modelAndView;
     }
 
+    @GetMapping("/screenshot")
+    public ModelAndView onlyChart(){
+        ModelAndView modelAndView = new ModelAndView("screens/onlyChart");
+        modelAndView.addObject("chart", service.getChart().subList(0, 10));
+        return modelAndView;
+    }
+
 }
