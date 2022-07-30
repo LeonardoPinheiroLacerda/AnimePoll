@@ -7,6 +7,7 @@ import com.leonardo.animepoll.models.enums.Rating;
 import com.leonardo.animepoll.models.enums.Season;
 import com.leonardo.animepoll.models.enums.Status;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -48,12 +49,16 @@ public class JsonMapperService {
         }
         
         
-        Rating[] ratingValues = Rating.values();
-        for(int i = 0; i < ratingValues.length; i ++){
-            String value = ratingValues[i].getRating();
-            if(value.toLowerCase().equals(json.getString("rating").toLowerCase())){
-                anime.setRating(ratingValues[i]);
+        try{
+            Rating[] ratingValues = Rating.values();
+            for(int i = 0; i < ratingValues.length; i ++){
+                String value = ratingValues[i].getRating();
+                if(value.toLowerCase().equals(json.getString("rating").toLowerCase())){
+                    anime.setRating(ratingValues[i]);
+                }
             }
+        }catch(JSONException e){
+            anime.setRating(null);
         }
 
         Status[] statusValues = Status.values();
